@@ -1,5 +1,7 @@
 # vscode-easy-plugin
 
+https://marketplace.visualstudio.com/items?itemName=hubcarl.vscode-easy-plugin
+
 - https://www.yuque.com/easy-team
 - https://github.com/easy-team
 

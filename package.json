@@ -4,7 +4,7 @@
   "description": "easywebpack vscode plugin",
   "version": "1.0.0",
   "icon": "images/easy.png",
-  "publisher": "sky",
+  "publisher": "hubcarl",
   "engines": {
     "vscode": "^1.30.0"
   },
