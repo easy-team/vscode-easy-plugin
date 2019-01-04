@@ -37,14 +37,14 @@ function activate(context) {
     });
     // "commands": [
     //     {
-    //         "command": "easy-vs-cli.app.react",
-    //         "title": "easy:create react app"
+    //       "command": "easy-vs-cli.app.react",
+    //       "title": "easy:create react app"
     //     },
     //     {
-    //         "command": "easy-vs-cli.app.vue",
-    //         "title": "easy:create vue app"
+    //       "command": "easy-vs-cli.app.vue",
+    //       "title": "easy:create vue app"
     //     }
-    // ],
+    //   ],
     // createCommand(context, 'easy-vs-cli.app.react', function () {
     //     vscode.window.showInformationMessage('easy-cli.app.react');
     // });
