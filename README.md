@@ -5,7 +5,7 @@
 
 ## screenshot
 
-[](/images/screenshot.png)
+![](/images/screenshot.png)
 
 ## contributes
 
