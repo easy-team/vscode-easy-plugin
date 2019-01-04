@@ -1,0 +1,66 @@
+{
+  "name": "vscode-easy-plugin",
+  "displayName": "vscode-easy-plugin",
+  "description": "easywebpack vscode plugin",
+  "version": "1.0.0",
+  "icon": "images/easy.png",
+  "publisher": "sky",
+  "engines": {
+    "vscode": "^1.30.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "onCommand:easy-vs-cli.app.react",
+    "onCommand:easy-vs-cli.app.vue",
+    "onFileSystemAccess:vsls",
+    "onFileSystem:vsls",
+    "*"
+  ],
+  "contributes": {
+    "views": {
+      "easy-vs-cli": [
+        {
+          "id": "easy-vs-cli.vue",
+          "name": "创建 Vue 项目"
+        },
+        {
+          "id": "easy-vs-cli.react",
+          "name": "创建 React 项目"
+        },
+        {
+          "id": "easy-vs-cli.doc",
+          "name": "开发文档"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "easy-vs-cli",
+          "title": "easy",
+          "icon": "images/easy-icon.png"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.42",
+    "@types/node": "^8.10.25",
+    "eslint": "^4.11.0",
+    "typescript": "^3.1.4",
+    "vscode": "^1.1.25"
+  },
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "compressing": "^1.4.0",
+    "mz-modules": "^2.1.0",
+    "shelljs": "^0.8.3"
+  }
+}
