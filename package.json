@@ -2,7 +2,7 @@
   "name": "vscode-easy-plugin",
   "displayName": "vscode-easy-plugin",
   "description": "easywebpack vscode plugin",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "icon": "images/easy.png",
   "publisher": "hubcarl",
   "engines": {
@@ -44,17 +44,31 @@
           "icon": "images/easy-icon.png"
         }
       ]
+    },
+    "configuration": {
+      "type": "object",
+      "title": "TypeScript configuration",
+      "properties": {
+        "easy.home": {
+          "type": "string",
+          "default": "",
+          "description": "Specifies the folder path to locate project"
+        }
+      }
     }
   },
   "scripts": {
     "postinstall": "node ./node_modules/vscode/bin/install",
-    "test": "node ./node_modules/vscode/bin/test"
+    "test": "node ./node_modules/vscode/bin/test",
+    "build": "npx vsce package",
+    "pub": "npx vsce publish"
   },
   "devDependencies": {
     "@types/mocha": "^2.2.42",
     "@types/node": "^8.10.25",
     "eslint": "^4.11.0",
     "typescript": "^3.1.4",
+    "vsce": "^1.71.0",
     "vscode": "^1.1.25"
   },
   "dependencies": {
