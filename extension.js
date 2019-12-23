@@ -17,35 +17,41 @@ function createCommand(context, name, callback) {
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 function activate(context) {
-  vscode.window.showInformationMessage('👏👏👏 welcome to easy vs code cli! please read the [documents](https://github.com/easy-team) before you use it! 👏👏👏');
+  vscode.window.showInformationMessage('🎉🎉🎉 welcome to easy ! here is the [documents](https://github.com/easy-team) !');
   // Use the console to output diagnostic information (console.log) and errors (console.error)
   // This line of code will only be executed once when your extension is activated
   createCommand(context, 'easy-vs-cli.openLink', function(url) {
     vscode.commands.executeCommand('vscode.open', vscode.Uri.parse(url));
   });
   createCommand(context, 'easy-vs-cli.init', function(args) {
-    vscode.window
-      .showInputBox({
-        placeHolder: 'Please input project name',
-      })
-      .then(value => {
-        if (value) {
-          const conf = vscode.workspace.getConfiguration('easy') || {};
-          const root = conf.home || path.resolve(os.homedir(), 'easy');
-          const name = value || args;
+    const conf = vscode.workspace.getConfiguration('easy') || {};
+    const root = conf.home || path.resolve(os.homedir(), 'easy');
 
-          downLoad.init(root, name, args)
-            .then(project => {
-              vscode.commands.executeCommand(
-                'vscode.openFolder',
-                vscode.Uri.file(project),
-                false,
-              );
-            })
-            .catch(error => {
-              vscode.window.showErrorMessage(error && error.message || 'errors occurred!');
-            })
+    vscode.window
+      .showInputBox({ value: root })
+      .then(value => {
+        if (!value) {
+          vscode.window.showErrorMessage('say sometings plz!');
+          return;
         }
+
+        const pathName = value.split('/');
+        const fileName = pathName.pop();
+
+        console.log('[pathName] ', pathName);
+        console.log('[fileName] ', fileName);
+
+        downLoad.init(pathName.length ? pathName.join('/') : root, fileName, args)
+          .then(project => {
+            vscode.commands.executeCommand(
+              'vscode.openFolder',
+              vscode.Uri.file(project),
+              false,
+            );
+          })
+          .catch(error => {
+            vscode.window.showErrorMessage(error && error.message || 'errors occurred!');
+          })
       });
   });
   vscode.window.registerTreeDataProvider(
