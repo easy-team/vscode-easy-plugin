@@ -25,23 +25,23 @@ function activate(context) {
   });
   createCommand(context, 'easy-vs-cli.init', function(args) {
     const conf = vscode.workspace.getConfiguration('easy') || {};
-    const root = conf.home || path.resolve(os.homedir(), 'easy');
+    const root = conf.home || path.resolve(os.homedir(), 'easy', args);
 
     vscode.window
       .showInputBox({ value: root })
       .then(value => {
         if (!value) {
-          vscode.window.showErrorMessage('say sometings plz!');
+          vscode.window.showErrorMessage('please input project dir path!');
           return;
         }
 
-        const pathName = value.split('/');
-        const fileName = pathName.pop();
+        const projectDir = value.split(path.sep);
+        const projectName = projectDir.pop();
 
-        console.log('[pathName] ', pathName);
-        console.log('[fileName] ', fileName);
+        console.log('[projectDir] ', projectDir);
+        console.log('[projectName] ', projectName);
 
-        downLoad.init(pathName.length ? pathName.join('/') : root, fileName, args)
+        downLoad.init(projectDir.length ? projectDir.join('/') : root, projectName, args)
           .then(project => {
             vscode.commands.executeCommand(
               'vscode.openFolder',
