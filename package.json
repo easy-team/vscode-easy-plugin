@@ -2,7 +2,7 @@
   "name": "vscode-easy-plugin",
   "displayName": "vscode-easy-plugin",
   "description": "easywebpack vscode plugin",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "icon": "images/easy.png",
   "publisher": "hubcarl",
   "engines": {
