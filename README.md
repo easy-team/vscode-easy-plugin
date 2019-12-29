@@ -40,4 +40,4 @@ https://code.visualstudio.com/docs/extensionAPI/activation-events
 
 ## VSCode Plugin Development
 
-https://www.yuque.com/hubcarl/blog/og9ogk/markdown
+https://www.yuque.com/hubcarl/blog/og9ogk
