@@ -75,7 +75,7 @@
     "chalk": "^2.4.1",
     "compressing": "^1.4.0",
     "mz-modules": "^2.1.0",
-    "shelljs": "^0.8.3",
+    "shelljs": "^0.8.5",
     "urllib": "^2.31.3"
   },
   "repository": {
